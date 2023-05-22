@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-news-website",
+  "version": "1.0.0",
+  "description": "tugas express js eduwork",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "iis istiqomah",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
