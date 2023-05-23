@@ -14,14 +14,28 @@ newsRoute.get('/', async(req, res) => {
         var url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=1235311a10564850bd45dd4a2400da4c'
         
         const getNews = await axios.get(url);
-        // console.log(response);
-        res.render('news.ejs',{ articles: getNews.data.articles})
-
+        // console.log(getNews);
+        res.render('news.ejs', { articles: getNews.data.articles})
       } catch (error) {
         if(error.response) {
-            console.error(error);
+            console.log(error)
         }
       }
+})
+
+newsRoute.get('/news/:category', async(req, res) => {
+  var category = req.params.category;
+  try {
+      var url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=1235311a10564850bd45dd4a2400da4c`;
+      
+      const getNews = await axios.get(url);
+      // console.log(getNews);
+      res.render('category.ejs', { articles: getNews.data.articles})
+    } catch (error) {
+      if(error.response) {
+          console.log(error)
+      }
+    }
 })
 
 module.exports = newsRoute;
