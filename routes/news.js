@@ -23,6 +23,10 @@ newsRoute.get('/', async(req, res) => {
       }
 })
 
+newsRoute.get('/about', (req, res) => {
+  res.render('about.ejs')
+})
+
 newsRoute.get('/news/:category', async(req, res) => {
   var category = req.params.category;
   try {
