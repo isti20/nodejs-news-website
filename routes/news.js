@@ -15,7 +15,7 @@ newsRoute.get('/', async(req, res) => {
         
         const getNews = await axios.get(url);
         // console.log(getNews);
-        res.render('news.ejs', { articles: getNews.data.articles})
+        res.status(200).render('news.ejs', { articles: getNews.data.articles})
       } catch (error) {
         if(error.response) {
             console.log(error)
@@ -24,7 +24,7 @@ newsRoute.get('/', async(req, res) => {
 })
 
 newsRoute.get('/about', (req, res) => {
-  res.render('about.ejs')
+  res.status(200).render('about.ejs')
 })
 
 newsRoute.get('/news/:category', async(req, res) => {
@@ -34,7 +34,7 @@ newsRoute.get('/news/:category', async(req, res) => {
       
       const getNews = await axios.get(url);
       // console.log(getNews);
-      res.render('category.ejs', { articles: getNews.data.articles})
+      res.status(200).render('category.ejs', { articles: getNews.data.articles})
     } catch (error) {
       if(error.response) {
           console.log(error)
@@ -50,7 +50,7 @@ newsRoute.post('/search', async(req, res) => {
       
       const getNews = await axios.get(url);
       // console.log(getNews);
-      res.render('newsSearch.ejs', { articles: getNews.data.articles })
+      res.status(200).render('newsSearch.ejs', { articles: getNews.data.articles })
     } catch (error) {
       if(error.response) {
         console.log(error)
