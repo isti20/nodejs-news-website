@@ -46,7 +46,7 @@ newsRoute.post('/search', async(req, res) => {
       
       const getNews = await axios.get(url);
       // console.log(getNews);
-      res.render('news.ejs', { articles: getNews.data.articles })
+      res.render('newsSearch.ejs', { articles: getNews.data.articles })
     } catch (error) {
       if(error.response) {
         console.log(error)
