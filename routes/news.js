@@ -38,4 +38,20 @@ newsRoute.get('/news/:category', async(req, res) => {
     }
 })
 
+newsRoute.post('/search', async(req, res) => {
+  const search = req.body.search
+  // console.log(search)
+  try {
+      var url = `https://newsapi.org/v2/top-headlines?q=${search}&apiKey=1235311a10564850bd45dd4a2400da4c`;
+      
+      const getNews = await axios.get(url);
+      // console.log(getNews);
+      res.render('news.ejs', { articles: getNews.data.articles })
+    } catch (error) {
+      if(error.response) {
+        console.log(error)
+      }
+    }
+})
+
 module.exports = newsRoute;
